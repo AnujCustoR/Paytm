@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/l_mer_type"
+            android:layout_height="wrap_content">
+            
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/food"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/iv_pic"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uber Hospitality Ventures pvt ltd"
+                android:textSize="20dp"
+                android:id="@+id/tv_merchant_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
+            
+        </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="5dp">
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:drawableLeft="@drawable/mobile_icon_91"
+        android:drawableRight="@drawable/contact"
+        android:drawablePadding="5dp"
+        android:textSize="20dp"
+        android:backgroundTint="#eeeeee"
+        android:ems="10"
+        android:imeOptions="actionNext"
+        android:inputType="phone"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextLabel"
+        android:layout_marginTop="20dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount ₹ (1-5,000)"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="20dp"
+            android:imeOptions="actionNext"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/et_amount"
+            android:inputType="number"/>
+    </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edittext_hint"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15dp"
+                android:imeOptions="actionDone"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/et_other_desc"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_proceed_amt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:textColor="@android:color/background_light"
+        android:textAllCaps="false"
+        android:layout_gravity="bottom"
+        android:background="@drawable/proceed_btn"
+        android:textSize="18dp"
+        android:padding="15dp"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
