@@ -133,11 +133,12 @@ public class InputAmtNo extends AppCompatActivity implements View.OnClickListene
                 final EditText etName = (EditText) dialogView.findViewById(R.id.et_name);
                 Button btPay = (Button) dialogView.findViewById(R.id.bt_proceed_pay);
                 TextView tvName=(TextView) dialogView.findViewById(R.id.tv_name) ;
-                btPay.setText("Proceed to Pay ₹ "+prefManager.getAmount());
+
+                btPay.setText("Proceed to Pay ₹ "+etAmount.getText().toString());
                 TextView tvCancel=(TextView) dialogView.findViewById(R.id.tv_cancel);
 
                 //TextInputLayout =(TextInputLayout) dialogView.findViewById(R.id.text_input);
-                prefManager.setAmount(etAmount.getText().toString());
+
                     if(prefManager.getMerNo()){
                         prefManager.setMerchant(etPhone.getText().toString());
                         etName.setVisibility(View.VISIBLE);
@@ -152,6 +153,7 @@ public class InputAmtNo extends AppCompatActivity implements View.OnClickListene
                 btPay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        prefManager.setAmount(etAmount.getText().toString());
                         if(prefManager.getMerNo()) {
                             prefManager.setName(etName.getText().toString());
                         }else {

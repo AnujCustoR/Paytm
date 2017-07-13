@@ -15,6 +15,9 @@ public class PrefManager {
     SharedPreferences.Editor editor;
     Context _context;
 
+    //Total Expenses
+    int total;
+
     // shared pref mode
     int PRIVATE_MODE = 0;
 
@@ -28,6 +31,8 @@ public class PrefManager {
     private static final String KEY_IS_MER_NO = "isMerOrNo";
 
     private static final String KEY_AMOUNT = "amount";
+
+    private static final String KEY_TOTAL = "totalExpenses";
 
     private static final String KEY_NAME="name";
 
@@ -77,6 +82,11 @@ public class PrefManager {
 
     public void setAmount(String amount) {
 
+        int amt = Integer.parseInt(amount);
+        total = Integer.parseInt(pref.getString(KEY_TOTAL, "0"));
+        total = total + amt;
+
+        editor.putString(KEY_TOTAL, Integer.toString(total));
         editor.putString(KEY_AMOUNT, amount);
 
         // commit changes
@@ -86,6 +96,17 @@ public class PrefManager {
 
     public String getAmount(){
         return pref.getString(KEY_AMOUNT, "100");
+    }
+    public String getTotal(){
+        return pref.getString(KEY_TOTAL, "0");
+    }
+    public void setTotalZero() {
+
+        editor.putString(KEY_TOTAL, "0");
+
+        // commit changes
+        editor.commit();
+
     }
     public void setName(String name) {
 

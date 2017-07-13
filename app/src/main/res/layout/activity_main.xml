@@ -42,5 +42,25 @@
         app:srcCompat="@drawable/success"
         android:background="?android:attr/selectableItemBackground"/>
 
+    <TextView
+        android:id="@+id/tv_expense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="Total Expenses till now:"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bt_zero"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:text="0"
+        android:background="@color/paytmBlue"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>

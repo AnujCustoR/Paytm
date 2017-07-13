@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
                         };
 
     PrefManager prefManager;
-    Button proceed;
+    Button proceed, totalZero;
+    TextView totalExpense;
     private String android_id;
     List device_id = Arrays.asList("bbbc6b27137ecdb2");
     //BBBC6B27137ECDB2
@@ -38,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
         //ImageView title=(ImageView) findViewById(getResources().getIdentifier("action_bar_title", "id", getPackageName()));
         //title.setImageDrawable(R.drawable.app_icon);
         prefManager=new PrefManager(this);
+
+        totalExpense = (TextView) findViewById(R.id.tv_expense);
+        totalZero = (Button) findViewById(R.id.bt_zero);
+        totalExpense.setText("Total Expenses till now:\n" + "\t\t\t\t\t\t\t\t\t\t\t\t₹ "+prefManager.getTotal());
+
+        totalZero.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                prefManager.setTotalZero();
+                totalExpense.setText("Total Expenses till now:\n\n" + "\t\t\t\t\t\t\t\t\t\t\t₹ "+prefManager.getTotal());
+                return true;
+            }
+        });
 
         android_id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
 
@@ -103,6 +118,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        totalExpense.setText("Total Expenses till now:\n\n" + "\t\t\t\t\t\t\t\t\t\t\t₹ "+prefManager.getTotal());
+
+    }
     /*private void startTimer() {
 
         while (timing) {
